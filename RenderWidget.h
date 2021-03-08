@@ -23,6 +23,8 @@ class RenderWidget : public QWidget
     QSize sizeHint() const override;
 
 	  void myDrawLine(float x1, float y1, float x2, float y2);
+	  void myDrawLineUsingBresenhamAlgorithm(float x1, float y1, float x2, float y2);
+	  void myDrawCircle(float xc, float yc, float t1, float t2, float r);
 
   protected:
     void paintEvent(QPaintEvent *event) override;
