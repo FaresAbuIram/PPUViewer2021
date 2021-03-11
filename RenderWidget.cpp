@@ -9,6 +9,7 @@
 
 
 #include "RenderWidget.h"
+#include "PPUPainter.h"
 #include <QPainter>
 #include<cmath>
 #include<iostream>
@@ -39,10 +40,6 @@ void RenderWidget::paintEvent(QPaintEvent *)
 
   painter.drawRect(QRect(0, 0, width() - 1, height() - 1));
   
-  for (int x = 100; x < 300; ++x)
-  {
-   // painter.drawPoint(x, x);
-  }
 
  // myDrawLine(50, 70, 500, 370);
   //myDrawLineUsingBresenhamAlgorithm(50, 70, 500, 370);
@@ -81,11 +78,6 @@ void RenderWidget::paintEvent(QPaintEvent *)
   myDrawLine(167.5, 174, 178, 158);
   myDrawLine(179, 185, 189, 169);
   myDrawLine(166, 175, 179, 185);
-
-
-
-
-  
 
 
 }

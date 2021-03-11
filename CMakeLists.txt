@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.0.2)
 project(CGFrameWork)
 
 INCLUDE_DIRECTORIES (
-#   D:/Develope/Libs/Glut/include
+#   ../Libs/Glut/include
 )
 
 find_package(Qt5Widgets)
@@ -26,7 +26,7 @@ SET( CGFrameWork_SRCS
 )
 
 LINK_LIBRARIES(
-#   D:/Develope/Libs/Glut/Lib/glut32.lib
+#   ../Libs/Glut/Lib/glut32.lib
 #   ${OPENGL_glu_LIBRARY}
 #   ${OPENGL_LIBRARY}
 )
