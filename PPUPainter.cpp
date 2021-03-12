@@ -16,11 +16,11 @@ void PPUPainter::drawCircleBresenham(int xc, int yc, int r) {
 	painter->drawPoint(x, y);
 	while (x <= end_x) {
 		if (d <= 0) {
-			drowAllSimilarPoints(x, y, xc, yc);
+			drawAllSimilarPoints(x, y, xc, yc);
 			d += (4 * x) + 6;
 		}
 		else {
-			drowAllSimilarPoints(x, y, xc, yc);
+			drawAllSimilarPoints(x, y, xc, yc);
 			y--;
 			d += (4 * (x - y)) + 10;
 		}
@@ -28,8 +28,11 @@ void PPUPainter::drawCircleBresenham(int xc, int yc, int r) {
 	}
 }
 
-void PPUPainter::drowAllSimilarPoints(int x, int y, int xc, int yc) {
+void PPUPainter::drawCirclePolar(int xc, int yc, int r) {
+	drawArcPolar(xc, yc, 0, 45, r, true);
+}
 
+void PPUPainter::drawAllSimilarPoints(int x, int y, int xc, int yc) {
 	this->painter->drawPoint(x + xc, yc + y);
 	this->painter->drawPoint(-x + xc, yc + y);
 	this->painter->drawPoint(x + xc, yc + -y);
@@ -151,6 +154,7 @@ void PPUPainter::drawLineBresenham(int x1, int y1, int x2, int y2) {
 		}
 	}
 
+
 }
 
 bool PPUPainter::isSimpleLine(int x1, int y1, int x2, int y2) {
@@ -184,3 +188,29 @@ void PPUPainter::drawSimpleLine(int x1, int y1, int x2, int y2) {
 		y1 += inc_y;
 	}
 }
+
+void PPUPainter::drawArcPolar(float xc, float yc, float t1, float t2, float r) {
+	drawArcPolar(xc, yc, t1, t2, r, false);
+}
+
+void PPUPainter::drawArcPolar(float xc, float yc, float t1, float t2, float r, bool isActiveDrawSimilar) {
+	float x, y;
+	float toPI = PI / 180;
+	float theta = t1 * toPI, dTheta = 1 / r;
+	t2 *= toPI;
+	while (theta < t2)
+	{
+		x = xc + (r * cos(theta));
+		y = yc + (r * sin(theta));
+		if (isActiveDrawSimilar) {
+			drawAllSimilarPoints(x - xc, y - yc, xc, yc);
+		}
+		else {
+			this->painter->drawPoint(x, y);
+		}
+		theta += dTheta;
+	}
+
+
+}
+
