@@ -23,6 +23,10 @@ SET( CGFrameWork_SRCS
    RenderWidget.h
    PPUViewer.cpp
    PPUViewer.h
+   MicroscopeDrawer.h
+   MicroscopeDrawer.cpp
+   PPUPainter.cpp
+   PPUPainter.h
 )
 
 LINK_LIBRARIES(
