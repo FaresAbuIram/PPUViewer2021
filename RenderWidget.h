@@ -11,6 +11,7 @@
 #pragma once
 
 #include <QWidget>
+#include "MicroscopeDrawer.h"
 
 class RenderWidget : public QWidget
 {
